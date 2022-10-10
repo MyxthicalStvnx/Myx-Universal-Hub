@@ -1,0 +1,274 @@
+if game.placeId == 155615604 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() --Thanks to OrionLib with his UI
+local Window = OrionLib:MakeWindow({Name = "Myx's Script Hub | Game: Prison Life", HidePremium = false, IntroText = "Welcome! Game Detected: Prison Life", SaveConfig = false, ConfigFolder = "Myx's Hub GameConfigs"})
+--Change SaveConfig to true if you want to save your data.
+
+OrionLib:MakeNotification({
+	Name = "Welcome!",
+	Content = "Enjoy our hub? Be sure to join our Discord Server!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+--InfoTab
+local InfoTab = Window:MakeTab({
+	Name = "Information",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+InfoTab:AddParagraph("Made by:","Myx (MyxthicalStvnx)")
+InfoTab:AddParagraph("NEW HUB REALISE!","We still on trying to make more scripts in the future! But right now we realise a new script hub, but yeah thanks for using our hub!)")
+InfoTab:AddParagraph("Supported Games:","Prison Life and more coming soon!")
+InfoTab:AddParagraph("Discord Server:","Working on it...")
+
+--LocalPlayerTab
+local LPTab = Window:MakeTab({
+	Name = "Local Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+LPTab:AddParagraph("Local Player","Here you can modify things from your body object.")
+
+--GunTab
+local WeaponTab = Window:MakeTab({
+	Name = "Weapons",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+WeaponTab:AddParagraph("Guns","Here you can basically get guns and modify them...")
+WeaponTab:AddButton({
+	Name = "Get Remington 870",
+	Callback = function()
+        local args = {
+            [1] = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+        }
+        
+        workspace.Remote.ItemHandler:InvokeServer(unpack(args))        
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Get M4A1 (Gamepass gun)",
+	Callback = function()
+        local args = {
+            [1] = workspace.Prison_ITEMS.giver.M4A1.ITEMPICKUP
+        }
+        
+        workspace.Remote.ItemHandler:InvokeServer(unpack(args))           
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Get AK-47",
+	Callback = function()
+        local args = {
+            [1] = workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP
+        }
+        
+        workspace.Remote.ItemHandler:InvokeServer(unpack(args))                        
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Get M9",
+	Callback = function()
+        local args = {
+            [1] = workspace.Prison_ITEMS.giver.M9.ITEMPICKUP
+        }
+        
+        workspace.Remote.ItemHandler:InvokeServer(unpack(args))              
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Get Hammer",
+	Callback = function()
+        local args = {
+            [1] = workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP
+        }
+        
+        workspace.Remote.ItemHandler:InvokeServer(unpack(args))                    
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Get Crude Knife",
+	Callback = function()
+        local args = {
+            [1] = workspace.Prison_ITEMS.single["Crude Knife"].ITEMPICKUP
+        }
+        
+        workspace.Remote.ItemHandler:InvokeServer(unpack(args))                        
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Get all guns",
+	Callback = function()
+        if BuyGamepass then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+		else
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)    
+        end               
+  	end    
+})
+
+--TeamTab
+local TeamTab = Window:MakeTab({
+	Name = "Teams",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+TeamTab:AddParagraph("Teams","Here you can change teams!")
+TeamTab:AddButton({
+	Name = "Be Guard",
+	Callback = function()
+        workspace.Remote.TeamEvent:FireServer("Bright blue")      
+  	end    
+})
+TeamTab:AddButton({
+	Name = "Be Inmate",
+	Callback = function()
+        workspace.Remote.TeamEvent:FireServer("Bright orange")           
+  	end    
+})
+TeamTab:AddButton({
+	Name = "Be Criminal",
+	Callback = function()
+        local savedcf = GetPos()
+		local savedcamcf = GetCamPos()
+		workspace.Remote.loadchar:InvokeServer(nil, BrickColor.new("Bright red").Name)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
+		workspace.CurrentCamera.CFrame = savedcamcf  
+  	end    
+})
+TeamTab:AddButton({
+	Name = "Be Neutral",
+	Callback = function()
+        workspace.Remote.TeamEvent:FireServer("Medium stone grey")           
+  	end    
+})
+
+--MapTab
+local MapTab = Window:MakeTab({
+	Name = "Map",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+MapTab:AddParagraph("Map","Here you simply change things from the map.")
+MapTab:AddButton({
+	Name = "Remove doors",
+	Callback = function()
+        if workspace:FindFirstChild("Doors") then
+			workspace.Doors.Parent = game.Lighting
+		end      
+  	end    
+})
+MapTab:AddButton({
+	Name = "Restore doors",
+	Callback = function()
+        if game.Lighting:FindFirstChild("Doors") then
+			game.Lighting.Doors.Parent = workspace
+		end    
+  	end    
+})
+MapTab:AddButton({
+	Name = "Open prison gate",
+	Callback = function()
+        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.buttons["Prison Gate"]["Prison Gate"]) 
+  	end    
+})
+
+--TPTab
+
+--MiscTab
+local MiscTab = Window:MakeTab({
+	Name = "Miscellaneous",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+MiscTab:AddParagraph("Miscellaneous","Just extra things...")
+MiscTab:AddButton({
+	Name = "One punch kill",
+	Callback = function()
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+		local MeleeEvent = ReplicatedStorage:FindFirstChild("meleeEvent")
+		local Mouse = game.Players.LocalPlayer:GetMouse()
+		local Punch = false
+		local Cooldown = false
+		States.SuperPunch = true
+
+		local function Punch()
+			if not States.Fast_Punch then
+				Cooldown = true
+				local Part = Instance.new("Part", game.Players.LocalPlayer.Character)
+				Part.Transparency = 1
+				Part.Size = Vector3.new(5, 2, 3)
+				Part.CanCollide = false
+				local Weld = Instance.new("Weld", Part)
+				Weld.Part0 = game.Players.LocalPlayer.Character.Torso
+				Weld.Part1 = Part
+				Weld.C1 = CFrame.new(0, 0, 2)
+				Part.Touched:connect(function(Touch)
+					if game.Players:FindFirstChild(Touch.Parent.Name) then
+						local plr = game.Players:FindFirstChild(Touch.Parent.Name) 
+						if plr.Name ~= game.Players.LocalPlayer.Name then
+							Part:Destroy()
+							for i = 1,100 do
+								MeleeEvent:FireServer(plr)
+							end
+						end
+					end
+				end)
+				wait(0.9)
+				Cooldown = false
+				Part:Destroy()
+			else
+				Cooldown = true
+				local Part = Instance.new("Part", game.Players.LocalPlayer.Character)
+				Part.Transparency = 1
+				Part.Size = Vector3.new(5, 2, 3)
+				Part.CanCollide = false
+				local Weld = Instance.new("Weld", Part)
+				Weld.Part0 = game.Players.LocalPlayer.Character.Torso
+				Weld.Part1 = Part
+				Weld.C1 = CFrame.new(0, 0, 2)
+				Part.Touched:connect(function(Touch)
+					if game.Players:FindFirstChild(Touch.Parent.Name) then
+						local plr = game.Players:FindFirstChild(Touch.Parent.Name) 
+						if plr.Name ~= game.Players.LocalPlayer.Name then
+							Part:Destroy()
+							for i = 1,100 do
+								MeleeEvent:FireServer(plr)
+							end
+						end
+					end
+				end)
+				wait(0.1)
+				Cooldown = false
+				Part:Destroy()
+			end
+		end
+		Mouse.KeyDown:connect(function(Key)
+			if not Cooldown and States.SuperPunch then
+				if Key:lower() == "f" then
+					Punch()
+				end				
+			end
+		end)
+    end
+})
+MiscTab:AddButton({
+	Name = "Disable one punch kill",
+	Callback = function()
+        States.SuperPunch = false 
+  	end    
+})
+MiscTab:AddButton({
+	Name = "Infinite Yield Admin",
+	Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+end
+OrionLib:Init()
