@@ -4,6 +4,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Myx's Script Hub | Game: Prison Life", HidePremium = false, IntroText = "Welcome! Game Detected: Prison Life", SaveConfig = false, ConfigFolder = "Myx's Hub GameConfigs"})
 --Change SaveConfig to true if you want to save your data.
 
+--Functions
+local BuyRIOTGamepass = game:GetService("MarketplaceService"):UserOwnsGamePassAsync(tonumber((game:GetService("Players").LocalPlayer.CharacterAppearance):split('=')[#((game:GetService("Players").LocalPlayer.CharacterAppearance):split('='))]), 96651)
+
 OrionLib:MakeNotification({
 	Name = "Welcome!",
 	Content = "Enjoy our hub? Be sure to join our Discord Server!",
@@ -124,7 +127,7 @@ WeaponTab:AddButton({
 WeaponTab:AddButton({
 	Name = "Get all guns",
 	Callback = function()
-        if BuyGamepass then
+        if BuyRIOTGamepass then
 			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
 			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
 			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
@@ -134,6 +137,17 @@ WeaponTab:AddButton({
 			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
 			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)    
         end               
+  	end    
+})
+WeaponTab:AddButton({
+	Name = "Mod equiped gun",
+	Callback = function()
+        local m = require(game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass("Tool").GunStates)
+                m.Damage = 100
+                m.MaxAmmo = math.huge
+                m.CurrentAmmo = math.huge
+                m.AutoFire = true
+                m.FireRate = 0                       
   	end    
 })
 
@@ -159,11 +173,16 @@ TeamTab:AddButton({
 TeamTab:AddButton({
 	Name = "Be Criminal",
 	Callback = function()
-        local savedcf = GetPos()
-		local savedcamcf = GetCamPos()
-		workspace.Remote.loadchar:InvokeServer(nil, BrickColor.new("Bright red").Name)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
-		workspace.CurrentCamera.CFrame = savedcamcf  
+        LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+
+LCS.CanCollide = false
+LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+LCS.Transparency = 1
+wait(0.5)
+LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+LCS.Size = Vector3.new(6, 0.2, 6)
+LCS.Transparency = 0
   	end    
 })
 TeamTab:AddButton({
