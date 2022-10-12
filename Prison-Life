@@ -1,3 +1,4 @@
+--OPEN SOURCE - Please avoid stealing this script. Myx's Script Hub.
 if game.placeId == 155615604 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))() --Thanks to OrionLib with his UI
 local Window = OrionLib:MakeWindow({Name = "Myx's Script Hub | Game: Prison Life", HidePremium = false, IntroText = "Welcome! Game Detected: Prison Life", SaveConfig = false, ConfigFolder = "Myx's Hub GameConfigs"})
@@ -22,12 +23,36 @@ InfoTab:AddParagraph("Supported Games:","Prison Life and more coming soon!")
 InfoTab:AddParagraph("Discord Server:","Working on it...")
 
 --LocalPlayerTab
-local LPTab = Window:MakeTab({
-	Name = "Local Player",
+local CHRTab = Window:MakeTab({
+	Name = "Character",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-LPTab:AddParagraph("Local Player","Here you can modify things from your body object.")
+CHRTab:AddParagraph("Character","Here you can modify things from your body object.")
+CHRTab:AddSlider({
+	Name = "Walk Speed",
+	Min = 0,
+	Max = 200,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+CHRTab:AddSlider({
+	Name = "Jump Power",
+	Min = 0,
+	Max = 400,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "JumpPower",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
+})
 
 --GunTab
 local WeaponTab = Window:MakeTab({
@@ -179,6 +204,120 @@ MapTab:AddButton({
 })
 
 --TPTab
+local TPTab = Window:MakeTab({
+	Name = "Teleports",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+TPTab:AddParagraph("Teleports","Here you can go places, such as criminal base, prison, hidden places and more!")
+TPTab:AddButton({
+	Name = "Teleport to Prison",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(917.53, 101.99, 2362.4)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Guard's Armory",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(837.11, 101.99, 2265.89)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Yard",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(776.33, 101, 2460.79)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Yard Tower",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(818.36, 132.04, 2572.43)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Kitchen",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(918.9, 102, 2226.91)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Prison Roof",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(942.09, 138.4, 2236.02)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Escape Sewer",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.85, 80.9, 2430.81)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Prison Secret Room",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(699.06, 101.99, 2359.9)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Mini Hiding Spot",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(493.74, 88.04, 2574.73)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Prison Entrance",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(486.06, 100.04, 2218.34)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Lakeside Building",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(438.06, 13.83, 1165.51)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Inside Bridge",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.88, 14.1, 1296.33)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Surburbs",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-300.25, 57.18, 2483.94)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Trap Room",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-298.19, 88.24, 2032.25)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Gas Station",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-511.84, 56.39, 1666.7)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Criminal Base",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-858.7, 96.48, 2092.26)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Criminal Base Trap",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-934, 96.13, 1987.62)
+  	end    
+})
+TPTab:AddButton({
+	Name = "Teleport to Neutral Spawn",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(880.17, 29.79, 2351.16)
+  	end    
+})
 
 --MiscTab
 local MiscTab = Window:MakeTab({
@@ -187,82 +326,7 @@ local MiscTab = Window:MakeTab({
 	PremiumOnly = false
 })
 MiscTab:AddParagraph("Miscellaneous","Just extra things...")
-MiscTab:AddButton({
-	Name = "One punch kill",
-	Callback = function()
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
-		local MeleeEvent = ReplicatedStorage:FindFirstChild("meleeEvent")
-		local Mouse = game.Players.LocalPlayer:GetMouse()
-		local Punch = false
-		local Cooldown = false
-		States.SuperPunch = true
 
-		local function Punch()
-			if not States.Fast_Punch then
-				Cooldown = true
-				local Part = Instance.new("Part", game.Players.LocalPlayer.Character)
-				Part.Transparency = 1
-				Part.Size = Vector3.new(5, 2, 3)
-				Part.CanCollide = false
-				local Weld = Instance.new("Weld", Part)
-				Weld.Part0 = game.Players.LocalPlayer.Character.Torso
-				Weld.Part1 = Part
-				Weld.C1 = CFrame.new(0, 0, 2)
-				Part.Touched:connect(function(Touch)
-					if game.Players:FindFirstChild(Touch.Parent.Name) then
-						local plr = game.Players:FindFirstChild(Touch.Parent.Name) 
-						if plr.Name ~= game.Players.LocalPlayer.Name then
-							Part:Destroy()
-							for i = 1,100 do
-								MeleeEvent:FireServer(plr)
-							end
-						end
-					end
-				end)
-				wait(0.9)
-				Cooldown = false
-				Part:Destroy()
-			else
-				Cooldown = true
-				local Part = Instance.new("Part", game.Players.LocalPlayer.Character)
-				Part.Transparency = 1
-				Part.Size = Vector3.new(5, 2, 3)
-				Part.CanCollide = false
-				local Weld = Instance.new("Weld", Part)
-				Weld.Part0 = game.Players.LocalPlayer.Character.Torso
-				Weld.Part1 = Part
-				Weld.C1 = CFrame.new(0, 0, 2)
-				Part.Touched:connect(function(Touch)
-					if game.Players:FindFirstChild(Touch.Parent.Name) then
-						local plr = game.Players:FindFirstChild(Touch.Parent.Name) 
-						if plr.Name ~= game.Players.LocalPlayer.Name then
-							Part:Destroy()
-							for i = 1,100 do
-								MeleeEvent:FireServer(plr)
-							end
-						end
-					end
-				end)
-				wait(0.1)
-				Cooldown = false
-				Part:Destroy()
-			end
-		end
-		Mouse.KeyDown:connect(function(Key)
-			if not Cooldown and States.SuperPunch then
-				if Key:lower() == "f" then
-					Punch()
-				end				
-			end
-		end)
-    end
-})
-MiscTab:AddButton({
-	Name = "Disable one punch kill",
-	Callback = function()
-        States.SuperPunch = false 
-  	end    
-})
 MiscTab:AddButton({
 	Name = "Infinite Yield Admin",
 	Callback = function()
