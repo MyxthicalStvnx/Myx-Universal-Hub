@@ -1,0 +1,12 @@
+local PlaceID = game.PlaceID
+local SupportedGames = {
+	[] = ""
+  --More coming soon!
+}
+
+if SupportedGames[PlaceID] then
+	return SupportedGames[PlaceID]
+end
+
+print("Not supported game")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MyxthicalStvnx/Myx-Universal-Hub/main/QGIzu8qgXE1rFKkRb63PCvQSj6Xc0pPP"))()
