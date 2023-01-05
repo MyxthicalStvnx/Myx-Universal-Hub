@@ -125,7 +125,7 @@ PLButton.Text = "Prison Life"
 PLButton.TextColor3 = Color3.fromRGB(190, 190, 190)
 PLButton.TextSize = 18.000
 PLButton.MouseButton1Click:Connect(function()
-	local placeId = 
+	local placeId = 155615604
 	local character = game.Players.LocalPlayer.Character
 	game.Players.LocalPlayer:LoadCharacter()
 	local destination = game:GetService("TeleportService"):GetTeleportPlaceAsync(placeId)
