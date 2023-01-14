@@ -8,5 +8,5 @@ if SupportedGames[PlaceID] then
 	return loadstring(game:HttpGet(SupportedGames[PlaceID]))()
 end
 
-print("Not supported game")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MyxthicalStvnx/Myx-Universal-Hub/main/QGIzu8qgXE1rFKkRb63PCvQSj6Xc0pPP"))()
+local lp = game.Players.LocalPlayer
+kick("MUH System: Hello, "..lp.Name..". Looks like you joined an unsupported game, make sure to check our Discord to see all supported games.")
