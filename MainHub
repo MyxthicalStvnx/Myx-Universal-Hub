@@ -1,6 +1,6 @@
 local PlaceID = game.PlaceID
 local SupportedGames = {
-	[] = ""
+	[] = "loadstring(game:HttpGet("https://raw.githubusercontent.com/MyxthicalStvnx/Myx-Universal-Hub/main/9AIf9JokYZsNVEv1Op1wvv7HO7KkQt44"))()"
   --More coming soon!
 }
 
