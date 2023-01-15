@@ -9,4 +9,5 @@ if SupportedGames[PlaceID] then
 end
 
 local lp = game.Players.LocalPlayer
-kick("MUH System: Hello, "..lp.Name..". Looks like you joined an unsupported game, make sure to check our Discord to see all supported games.")
+
+game.Players.LocalPlayer:Kick("MUH Systems: Hello, "..lp.Name..". Looks like you joined an unsupported game, make sure to check our Discord to see all supported games.")
