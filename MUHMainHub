@@ -1,6 +1,7 @@
 local PlaceID = game.placeId
 local SupportedGames = {
 	[155615604] = "https://raw.githubusercontent.com/MyxthicalStvnx/Myx-Universal-Hub/main/9AIf9JokYZsNVEv1Op1wvv7HO7KkQt44",
+	[10914683361] = "https://raw.githubusercontent.com/MyxthicalStvnx/Myx-Universal-Hub/main/tYjjvV2C0Sso8m1RfAvc8AquidZhPfQ2",
   --More coming soon!
 }
 
@@ -9,5 +10,4 @@ if SupportedGames[PlaceID] then
 end
 
 local lp = game.Players.LocalPlayer
-
 game.Players.LocalPlayer:Kick("MUH Systems: Hello, "..lp.Name..". Looks like you joined an unsupported game, make sure to check our Discord to see all supported games.")
